@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Treyd",
+        "prompt": "A photo of, {prompt}, Dreamy, Modern, Minimalist, Delicate, Interplay, Form, Light, Stark, simplicity, Captivating depth, Artistically refined, Invitingly functional",
+        "negative_prompt": "Blurry, ugly, deform, logo. icons, text, (worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch)"
+    }
+]

@@ -1,0 +1,7 @@
+[
+    {
+        "name": "Blue",
+        "prompt": "{prompt}, a blue color palette",
+        "negative_prompt": ""
+    }
+]

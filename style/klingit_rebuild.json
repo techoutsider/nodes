@@ -1,0 +1,1182 @@
+{
+  "last_node_id": 129,
+  "last_link_id": 210,
+  "nodes": [
+    {
+      "id": 76,
+      "type": "Reroute",
+      "pos": [
+        724,
+        1200
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 150
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "VAE",
+          "links": [
+            187
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 4,
+      "type": "PrimitiveNode",
+      "pos": [
+        -821,
+        -170
+      ],
+      "size": {
+        "0": 278.00274658203125,
+        "1": 116.0075454711914
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            4
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "negative"
+          }
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch, open mouth, "
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 40,
+      "type": "KSampler",
+      "pos": [
+        4711,
+        -162
+      ],
+      "size": {
+        "0": 315,
+        "1": 474
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 125
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 194
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 195
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 201,
+          "slot_index": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            64
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        531157903408817,
+        "randomize",
+        30,
+        8,
+        "dpmpp_2s_ancestral",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 73,
+      "type": "Reroute",
+      "pos": [
+        4129,
+        -210
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 190
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "MODEL",
+          "links": [
+            125
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 5,
+      "type": "Unpack SDXL Tuple",
+      "pos": [
+        573,
+        -206
+      ],
+      "size": {
+        "0": 405.5999755859375,
+        "1": 166
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "sdxl_tuple",
+          "type": "SDXL_TUPLE",
+          "link": 5
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BASE_MODEL",
+          "type": "MODEL",
+          "links": [
+            190
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "BASE_CLIP",
+          "type": "CLIP",
+          "links": [
+            173,
+            191
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "BASE_CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "BASE_CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 3
+        },
+        {
+          "name": "REFINER_MODEL",
+          "type": "MODEL",
+          "links": [],
+          "shape": 3,
+          "slot_index": 4
+        },
+        {
+          "name": "REFINER_CLIP",
+          "type": "CLIP",
+          "links": [],
+          "shape": 3,
+          "slot_index": 5
+        },
+        {
+          "name": "REFINER_CONDITIONING+",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 6
+        },
+        {
+          "name": "REFINER_CONDITIONING-",
+          "type": "CONDITIONING",
+          "links": [],
+          "shape": 3,
+          "slot_index": 7
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Unpack SDXL Tuple"
+      },
+      "shape": 1
+    },
+    {
+      "id": 41,
+      "type": "VAEDecode",
+      "pos": [
+        5430,
+        1181
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 19,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 64
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 189
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 42,
+      "type": "PreviewImage",
+      "pos": [
+        5879,
+        1183
+      ],
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 20,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 66
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 110,
+      "type": "Reroute",
+      "pos": [
+        4189,
+        1189
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 187
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "VAE",
+          "links": [
+            189
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 1,
+      "type": "Eff. Loader SDXL",
+      "pos": [
+        -254,
+        -204
+      ],
+      "size": {
+        "0": 510.0636901855469,
+        "1": 342.48468017578125
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora_stack",
+          "type": "LORA_STACK",
+          "link": null
+        },
+        {
+          "name": "cnet_stack",
+          "type": "CONTROL_NET_STACK",
+          "link": null
+        },
+        {
+          "name": "negative",
+          "type": "STRING",
+          "link": 4,
+          "widget": {
+            "name": "negative"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SDXL_TUPLE",
+          "type": "SDXL_TUPLE",
+          "links": [
+            5
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            150
+          ],
+          "shape": 3,
+          "slot_index": 2
+        },
+        {
+          "name": "DEPENDENCIES",
+          "type": "DEPENDENCIES",
+          "links": null,
+          "shape": 3,
+          "slot_index": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Eff. Loader SDXL"
+      },
+      "widgets_values": [
+        "realvisxlV20_v20Bakedvae.safetensors",
+        -1,
+        "None",
+        -1,
+        6,
+        2,
+        "Baked VAE",
+        "",
+        "worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch, open mouth, ",
+        1024,
+        1024,
+        1
+      ],
+      "color": "#222233",
+      "bgcolor": "#333355",
+      "shape": 1
+    },
+    {
+      "id": 111,
+      "type": "Reroute",
+      "pos": [
+        1111,
+        267
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 191
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "CLIP",
+          "links": [
+            192
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    },
+    {
+      "id": 107,
+      "type": "PrimitiveNode",
+      "pos": [
+        1725,
+        355
+      ],
+      "size": {
+        "0": 347.5555419921875,
+        "1": 107.16019439697266
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            182,
+            183
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "text_g"
+          }
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch, open mouth, blurry"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 116,
+      "type": "LoadText|pysssss",
+      "pos": [
+        819,
+        399
+      ],
+      "size": {
+        "0": 315,
+        "1": 82
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadText|pysssss"
+      },
+      "widgets_values": [
+        "input",
+        "[none]"
+      ]
+    },
+    {
+      "id": 106,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2172,
+        266
+      ],
+      "size": {
+        "0": 400,
+        "1": 270
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 192
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 182,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 183,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            195
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch, open mouth, blurry",
+        "worst quality, low quality, illustration, 3d, 2d, painting, cartoons, sketch, open mouth, blurry"
+      ]
+    },
+    {
+      "id": 125,
+      "type": "EmptyLatentImage",
+      "pos": [
+        4138,
+        797
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "link": 199,
+          "widget": {
+            "name": "width"
+          }
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "link": 200,
+          "widget": {
+            "name": "height"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            201
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 124,
+      "type": "JoesAspectRatios",
+      "pos": [
+        3659,
+        800
+      ],
+      "size": {
+        "0": 315,
+        "1": 78
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "Width",
+          "type": "INT",
+          "links": [
+            199
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "Height",
+          "type": "INT",
+          "links": [
+            200
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "JoesAspectRatios"
+      },
+      "widgets_values": [
+        "4:3  - 1152x896 Landscape"
+      ]
+    },
+    {
+      "id": 104,
+      "type": "CLIPTextEncodeSDXL",
+      "pos": [
+        2377,
+        -300
+      ],
+      "size": {
+        "0": 400,
+        "1": 270
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 173
+        },
+        {
+          "name": "text_g",
+          "type": "STRING",
+          "link": 205,
+          "widget": {
+            "name": "text_g"
+          }
+        },
+        {
+          "name": "text_l",
+          "type": "STRING",
+          "link": 206,
+          "widget": {
+            "name": "text_l"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            194
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncodeSDXL"
+      },
+      "widgets_values": [
+        1024,
+        1024,
+        0,
+        0,
+        1024,
+        1024,
+        "CLIP_G",
+        "CLIP_L"
+      ]
+    },
+    {
+      "id": 128,
+      "type": "Text Concatenate",
+      "pos": [
+        1936,
+        -235
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 210,
+          "widget": {
+            "name": "text_a"
+          }
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 209,
+          "widget": {
+            "name": "text_b"
+          }
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": 208,
+          "widget": {
+            "name": "text_c"
+          }
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": 207,
+          "widget": {
+            "name": "text_d"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            205,
+            206
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        "",
+        "",
+        "false",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 127,
+      "type": "Text Multiline",
+      "pos": [
+        1320,
+        51
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            207
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        ", Minimalistic, Contemporary, Neutral tones, Clean lines, Muted colors, Modern design, Organized, Tranquil, Elegant, Sophisticated, Functional, Aesthetic balance, Detail-oriented, Subtle textures, Ambient lighting, Geometric shapes, Fresh, Streamlined, Artistic, Timeless."
+      ]
+    },
+    {
+      "id": 126,
+      "type": "Text Multiline",
+      "pos": [
+        1316,
+        -208
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            208
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        ",The palette is subtle, refined, and predominantly revolves around neutral and pastel tones. It evokes a sense of calm, elegance, and modern sophistication, Creamy beige, Soft taupe, Light gray, Pastel peach, Off-white, Muted teal, Pale yellow, Subtle bronze, Charcoal accents."
+      ]
+    },
+    {
+      "id": 62,
+      "type": "Text Multiline",
+      "pos": [
+        1293,
+        -495
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            209
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "an empty space with a few items"
+      ]
+    },
+    {
+      "id": 129,
+      "type": "Text Multiline",
+      "pos": [
+        1316,
+        -743
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            210
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "a 3d render of, "
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      4,
+      0,
+      1,
+      2,
+      "STRING"
+    ],
+    [
+      5,
+      1,
+      0,
+      5,
+      0,
+      "SDXL_TUPLE"
+    ],
+    [
+      64,
+      40,
+      0,
+      41,
+      0,
+      "LATENT"
+    ],
+    [
+      66,
+      41,
+      0,
+      42,
+      0,
+      "IMAGE"
+    ],
+    [
+      125,
+      73,
+      0,
+      40,
+      0,
+      "MODEL"
+    ],
+    [
+      150,
+      1,
+      2,
+      76,
+      0,
+      "*"
+    ],
+    [
+      173,
+      5,
+      1,
+      104,
+      0,
+      "CLIP"
+    ],
+    [
+      182,
+      107,
+      0,
+      106,
+      1,
+      "STRING"
+    ],
+    [
+      183,
+      107,
+      0,
+      106,
+      2,
+      "STRING"
+    ],
+    [
+      187,
+      76,
+      0,
+      110,
+      0,
+      "*"
+    ],
+    [
+      189,
+      110,
+      0,
+      41,
+      1,
+      "VAE"
+    ],
+    [
+      190,
+      5,
+      0,
+      73,
+      0,
+      "*"
+    ],
+    [
+      191,
+      5,
+      1,
+      111,
+      0,
+      "*"
+    ],
+    [
+      192,
+      111,
+      0,
+      106,
+      0,
+      "CLIP"
+    ],
+    [
+      193,
+      121,
+      0,
+      123,
+      0,
+      "STRING"
+    ],
+    [
+      194,
+      104,
+      0,
+      40,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      195,
+      106,
+      0,
+      40,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      199,
+      124,
+      0,
+      125,
+      0,
+      "INT"
+    ],
+    [
+      200,
+      124,
+      1,
+      125,
+      1,
+      "INT"
+    ],
+    [
+      201,
+      125,
+      0,
+      40,
+      3,
+      "LATENT"
+    ],
+    [
+      205,
+      128,
+      0,
+      104,
+      1,
+      "STRING"
+    ],
+    [
+      206,
+      128,
+      0,
+      104,
+      2,
+      "STRING"
+    ],
+    [
+      207,
+      127,
+      0,
+      128,
+      3,
+      "STRING"
+    ],
+    [
+      208,
+      126,
+      0,
+      128,
+      2,
+      "STRING"
+    ],
+    [
+      209,
+      62,
+      0,
+      128,
+      1,
+      "STRING"
+    ],
+    [
+      210,
+      129,
+      0,
+      128,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+}
